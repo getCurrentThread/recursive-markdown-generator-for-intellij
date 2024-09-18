@@ -1,0 +1,25 @@
+<idea-plugin>
+    <id>com.github.getcurrentthread.recursivemarkdowngenerator</id>
+    <name>Recursive Markdown Generator</name>
+    <vendor email="getCurrentThread@github.com" url="http://github.com/getCurrentThread/recursive-markdown-generator-for-intellij">Git Repo</vendor>
+
+    <description><![CDATA[
+    Recursively generate markdown from files in the current project.
+    ]]></description>
+
+    <!-- 이 부분을 수정하여 모든 IntelliJ 기반 IDE를 지원합니다 -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Recursive Markdown" secondary="true" icon="AllIcons.General.Modified" anchor="right"
+                    factoryClass="com.github.getcurrentthread.recursivemarkdowngenerator.RecursiveMarkdownGeneratorToolWindowFactory"/>
+        <projectService serviceImplementation="com.github.getcurrentthread.recursivemarkdowngenerator.RecursiveMarkdownGeneratorSettings"/>
+    </extensions>
+
+    <actions>
+        <action id="RecursiveMarkdownGenerator.Generate" class="com.github.getcurrentthread.recursivemarkdowngenerator.RecursiveMarkdownGeneratorAction"
+                text="Generate Recursive Markdown" description="Generate markdown from all files in the project">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
